@@ -11,22 +11,31 @@
  * @return {number}
  */
 var maxDepth = function(root) {
+	// if root is empty
+    if(!root) return false;
+	
+    let maxDepth = 0;
+    let tempDepth = 0;
     
-    let depth =0;
-    
-    
-    function checkDepth (root, len) {
-        
-        if(!root) return;
-        
-       
-        depth = Math.max(len, depth)
-        console.log(depth)
-        
-        checkDepth(root.left, len+1)
-        checkDepth(root.right, len+1)
+	// recursion down to the furthest node
+    const traversal = (node) => {
+	
+		//every level add one
+        tempDepth += 1;
+		
+		//compare temp against max depth
+        if(tempDepth > maxDepth) maxDepth = tempDepth;
+		
+		//traverse down the tree.
+        node.left && traversal(node.left);
+        node.right && traversal(node.right);
+		
+		//you've exhausted that branch- remove one from counter while moving back up a level. 
+        tempDepth -= 1;
     }
-    checkDepth(root, 1)
-    
-    return depth
+	//invoke traversal
+    traversal(root)
+	
+	//after recursion return max
+    return maxDepth;
 };
