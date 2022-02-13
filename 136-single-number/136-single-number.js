@@ -42,5 +42,5 @@ var singleNumber = function(nums) {
             // console.log(map, nums[i])
     }
     
-     return (map.keys().next().value)
+     return(map.keys().next().value)
 };
