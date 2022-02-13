@@ -16,17 +16,31 @@ var singleNumber = function(nums) {
 //     }
 //     return stack[0]
     
-    let obj = {};
+//     let obj = {};
+    
+//     for(let i = 0; i<nums.length; i++) {
+        
+//         if(`${nums[i]}` in obj) {
+//             delete obj[nums[i]];
+//         } else {
+//             obj[nums[i]] = 1;
+//         }
+//             // console.log(obj, nums[i])
+//     }
+    
+//     return Object.keys(obj)[0]
+    
+    let map = new Map();
     
     for(let i = 0; i<nums.length; i++) {
         
-        if(`${nums[i]}` in obj) {
-            delete obj[nums[i]];
+        if(map.has(nums[i])) {
+            map.delete(nums[i])
         } else {
-            obj[nums[i]] = 1;
+            map.set(nums[i], 1)
         }
-            // console.log(obj, nums[i])
+            // console.log(map, nums[i])
     }
     
-    return Object.keys(obj)[0]
+     return (map.keys().next().value)
 };
