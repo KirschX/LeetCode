@@ -3,24 +3,11 @@
  * @return {number}
  */
 var majorityElement = function(nums) {
-    let map = new Map();
+    var obj = {};
     
-    let max = 0;
+    for(var i = 0; i < nums.length; i++){
+        obj[nums[i]] = obj[nums[i]] + 1 || 1;
+        if(obj[nums[i]] > nums.length / 2)  return nums[i];
+    }
     
-    for(let i=0; i<nums.length; i++){
-
-        if(map.has(nums[i])) {
-            map.set(nums[i], map.get(nums[i]) + 1)
-           if(map.get(nums[i]) >= Math.ceil(nums.length/2)) {
-               return nums[i]
-           }
-            
-        } else {
-            map.set(nums[i] , 1)
-        }
-        
-        
-        }
-    
-    return nums[0]
-}
+};
