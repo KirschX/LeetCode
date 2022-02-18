@@ -1,35 +1,24 @@
-/**
- * @param {string} s
- * @return {boolean}
- */
-var validPalindrome = function(s) {
+var validPalindrome = function (s) {
+  let start = 0;
+  let end = s.length - 1;
 
-    function check(string) {
-        
-        for(let i=0; i<Math.floor(string.length/2); i++) {
-
-            if(string[i] !== string[string.length-1-i]) {
-                return false;
-            }
-        }
-        
-        return true;
-        
+  while (start < end) {
+    if (s[start] !== s[end]) {
+      return isPalindrome(s, start + 1, end) || isPalindrome(s, start, end - 1);
     }
-    
-    for(let i=0; i<Math.floor(s.length/2); i++) {
-        if(s[i] !== s[s.length-1-i]) {
-            let a = s.slice(i+1, s.length-i)
-            let b = s.slice(i, s.length-1-i)
+    start++;
+    end--;
+  }
+  return true;
+};
 
-            if(check(a)|| check(b)) {
-                return true;
-            } else return false;
-            
-        }
-        
+const isPalindrome = (s, start, end) => {
+  while (start < end) {
+    if (s[start] !== s[end]) {
+      return false;
     }
-        
-    
-    return true;
+    start++;
+    end--;
+  }
+  return true;
 };
