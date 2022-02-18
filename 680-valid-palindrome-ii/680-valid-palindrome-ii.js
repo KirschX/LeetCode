@@ -13,17 +13,12 @@ var validPalindrome = function(s) {
     }
     
     for(let i=0; i<Math.floor(s.length/2); i++) {
-        // console.log(i, Math.floor(s.length/2), s[i], s[s.length-1-i])
-       
         if(s[i] !== s[s.length-1-i]) {
-            let a = [...s]
-            let b = [...s]
-            a.splice(i,1)
-            // console.log(check(a.join("")))
-            b.splice(s.length-1-i, 1)
-            // console.log(check(b.join("")))
-            
-            if(check(a.join("")) || check(b.join(""))) {
+            let a = s.slice(i+1, s.length-i)
+            let b = s.slice(i, s.length-1-i)
+        
+            console.log(a)
+            if(check(a)|| check(b)) {
                 return true;
             } else return false;
             
