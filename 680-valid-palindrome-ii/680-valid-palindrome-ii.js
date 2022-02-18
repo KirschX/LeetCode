@@ -6,9 +6,18 @@ var validPalindrome = function(s) {
 
     function check(string) {
         
-        if (string == string.split("").reverse().join("")) {
-            return true;
-        } else return false;
+        // if (string == string.split("").reverse().join("")) {
+        //     return true;
+        // } else return false;
+        
+        for(let i=0; i<Math.floor(string.length/2); i++) {
+            console.log(string[i], string[string.length-1-i])
+            if(string[i] !== string[string.length-1-i]) {
+                return false;
+            }
+        }
+        
+        return true;
         
     }
     
@@ -17,7 +26,7 @@ var validPalindrome = function(s) {
             let a = s.slice(i+1, s.length-i)
             let b = s.slice(i, s.length-1-i)
         
-            console.log(a)
+            // console.log(a)
             if(check(a)|| check(b)) {
                 return true;
             } else return false;
@@ -27,8 +36,7 @@ var validPalindrome = function(s) {
         
     }
         
-  
-//     console.log([...s].splice(1,2))
+
 
     
     return true;
