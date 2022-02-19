@@ -23,7 +23,7 @@ var countBinarySubstrings = function(s) {
             cur = 1;
             
         }
-        console.log(i, prev, cur, sum)
+        // console.log(i, prev, cur, sum)
     }
     return sum + Math.min(cur, prev)
 };
