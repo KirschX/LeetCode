@@ -5,45 +5,22 @@
  */
 var search = function(nums, target) {
 
-
-
-    
     let start = 0;
+    let end = nums.length -1;
     
-    let end = nums.length-1;
-    
-    let mid = [];
-    
-    mid = Math.floor(nums.length / 2);
-    
-    if(nums.length <= 2) {
-        if(nums.includes(target)){
-            return nums.indexOf(target)
-        }
-        else return -1;
-    }
-    
-    while(end-start !== 2){
-        
-           // console.log(mid, nums[mid], end - start)
-          
-            if (nums[mid] > target) {
-                end = mid;
-                mid = Math.floor(end / 2)
-           
-            } else if (nums[mid] < target) {
-                start = mid;
-                mid = Math.floor((end + start) / 2)
-          
+    while (start <= end) {
+           let mid = Math.floor((end + start) / 2);
+            
+           if(target == nums[mid]){
+         
+                return mid;
+            } else if (target > nums[mid]) {
+                start = mid +1;
             } else {
-                
-                return nums.indexOf(target)
+                end = mid -1; 
             }
-        
-  
-          }
-    
-    return nums.indexOf(target)
+        // console.log(mid, start , end, nums[mid])
+           }
 
-    
+    return -1;
 };
