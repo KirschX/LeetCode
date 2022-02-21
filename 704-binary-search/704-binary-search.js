@@ -6,7 +6,7 @@
 var search = function(nums, target) {
 
 
-    let count = 0;
+
     
     let start = 0;
     
@@ -25,7 +25,7 @@ var search = function(nums, target) {
     
     while(end-start !== 2){
         
-           console.log(mid, nums[mid], end - start)
+           // console.log(mid, nums[mid], end - start)
           
             if (nums[mid] > target) {
                 end = mid;
