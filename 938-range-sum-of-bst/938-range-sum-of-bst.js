@@ -13,37 +13,24 @@
  * @return {number}
  */
 
-// var rangeSumBST = function(root, low, high) {
-//     if(!root) return;
-    
-
-//     if (root.val >= low && root.val <= high) {arr.push(root.val)}
-
-
-//     console.log(root.val, arr, low, high)
-    
-//     rangeSumBST(root.left, low, high);
-//     rangeSumBST(root.right, low, high);
-    
-//     console.log(arr.reduce((a,b) => a+b))
-// };
-
-
+// 
 var rangeSumBST = function(root, low, high) {
-
-    let arr = 0;
     
-    function sum (node, l, h) {
-        if(!node) return;
-
-        if(node.val >= l && node.val<= h) arr = arr + node.val;
-
-     
-        sum(node.left, l, h);
-        sum(node.right, l, h);
+    let que = [root];
+    let sum = 0;
+    
+    while(que.length) {
         
-        }
+            let a = que.shift();
+            if(a.val >= low && a.val <= high) sum = sum + a.val
+        
+            if(a.left) que.push(a.left)
+        
+            if(a.right) que.push(a.right)
+   
+          }
     
-    sum(root,low,high);
-    return arr;
+    return sum
 };
+
+
