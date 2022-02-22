@@ -30,7 +30,7 @@ var rangeSumBST = function(root, low, high) {
    
           }
     
-    return sum
+    return sum;
 };
 
 
