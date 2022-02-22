@@ -12,7 +12,7 @@
  * @param {number} high
  * @return {number}
  */
-// let arr = [];
+
 // var rangeSumBST = function(root, low, high) {
 //     if(!root) return;
     
@@ -36,7 +36,7 @@ var rangeSumBST = function(root, low, high) {
     function sum (node, l, h) {
         if(!node) return;
         if(node.val >= l && node.val<= h) arr = arr + node.val;
-    
+        // if(node.val === h) return arr;
     
         sum(node.left, l, h);
         sum(node.right, l, h);
