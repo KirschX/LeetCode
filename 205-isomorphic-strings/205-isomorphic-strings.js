@@ -6,20 +6,18 @@
 var isIsomorphic = function(s, t) {
     let map = new Map();
     
-    let sArr = s.split("")
-    let tArr = t.split("")
-    
+
     for (let i = 0; i<s.length; i++) {
         if (s.length != t.length)
         return false
         
-        if(!map.has(sArr[i])) {
+        if(!map.has(s[i])) {
               
-            map.set(sArr[i], tArr[i])
+            map.set(s[i], t[i])
           
         
         } else {
-            if(tArr[i] !== map.get(s[i])){return false}
+            if(t[i] !== map.get(s[i])){return false}
         }
                                     
  
