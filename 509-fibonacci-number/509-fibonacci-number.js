@@ -3,11 +3,20 @@
  * @return {number}
  */
 var fib = function(n) {
-    if(n == 0) return 0;
-    if(n == 1) return 1;
+
+    let memo = [];
     
-    let result = fib(n-1) + fib(n-2)
+    memo[0] = 0;
+    memo[1] = 1;
     
-    return result
+    if(n==0) return memo[0];
+
+    
+    while(memo.length-1 !== n) {
+        memo.push(memo[memo.length-2] + memo[memo.length-1])
+        console.log(memo)
+    }
+    
+    return memo[n]
 
 };
