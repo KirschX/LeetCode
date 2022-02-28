@@ -14,7 +14,7 @@ var fib = function(n) {
     
     while(memo.length-1 !== n) {
         memo.push(memo[memo.length-2] + memo[memo.length-1])
-        console.log(memo)
+        // console.log(memo)
     }
     
     return memo[n]
