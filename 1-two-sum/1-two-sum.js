@@ -35,8 +35,7 @@
 
 var twoSum = function(nums, target) {
 
-    let result;
-    
+let result;
 
     let map = new Map();
     
@@ -48,10 +47,6 @@ var twoSum = function(nums, target) {
         map.set(target-item, item)
         
     })
-    
-
-
-            
     
 return result
 };
