@@ -29,8 +29,7 @@ var addTwoNumbers = function(l1, l2) {
                 temp = 0;
             }
         }
-        99
-         9
+
         
         if (l1 && !l2) {
             if(l1.val + temp > 9) {
@@ -53,9 +52,6 @@ var addTwoNumbers = function(l1, l2) {
                 temp =0;
             }
         }
-        
-        
-        // console.log(l3H.next)
         
         if(l3) l3 = l3.next
         if(l1) l1 = l1.next;
