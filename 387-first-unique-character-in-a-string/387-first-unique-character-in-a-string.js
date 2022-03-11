@@ -15,17 +15,11 @@ var firstUniqChar = function(s) {
         } else {
              map.set(s[i], 1)    
         }
-       // console.log(map)
+
     }
-    
-    // for(let i of map.values()){
-    //     if (i === 1) return i;
-    // }
-    // console.log(map.values())
-    
+
     let arr = Array.from(map.keys())
     
-    // console.log(arr)
     
     for(let i =0; i<arr.length; i++){
         if (map.get(arr[i]) === 1) {
