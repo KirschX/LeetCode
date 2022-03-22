@@ -24,22 +24,6 @@ var findShortestSubArray = function(nums) {
         }
         if(map.get(item).freq > max) max = map.get(item).freq
     })
-    
-    // console.log(map)
-    
-//     for(let i = 0; i<nums.length; i++){
-//         let item = nums[i]
-//             if(!map.get(item)) {
-//                 map.set(item, {freq : 1, index : [i]})
-//             }
-//             else {
-//                 map.set(item, {freq : map.get(item).freq+1, index : [...map.get(item).index, i]})
-
-//             }
-//             if(map.get(item).freq > max) max = map.get(item).freq
-//     }
-    
-    
    
     let result = [];
   
