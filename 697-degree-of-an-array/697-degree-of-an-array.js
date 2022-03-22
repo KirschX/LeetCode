@@ -4,48 +4,60 @@
  */
 var findShortestSubArray = function(nums) {
 
-    // max degree 찾고
-    // md와 같은 숫자들만 모아서
-    // 모은것의 부분 집합 중에서 가장 짧은 길이 부분집합을 반환
+//     map {
+//         1 : {freq : 2, index : [0 , 4]},
+//         2 : {freq : 2, index : [1 , 2]},
+//         3 : {freq : 1, index : [3]}
+//     }
     
-    // obj {
-    //     1 : 2
-    //     2 : 2
-    //     3 : 1
-    // }
+    let map = new Map();
     
-    let obj = {};
-    
-    nums.map(item => {
-        obj[item] = obj[item] + 1 || 1;
+    let max = 1;
+    nums.map((item, i) => {
+        if(!map.get(item)) {
+            map.set(item, {freq : 1, index : [i]})
+        }
+        else {
+            map.get(item).index.push(i)
+            map.set(item, {freq : map.get(item).freq+1, index : map.get(item).index})
+            
+        }
+        if(map.get(item).freq > max) max = map.get(item).freq
     })
     
-    let aa = Object.values(obj)
+    // console.log(map)
     
-    let maxDegree = (Math.max(...aa))
-    
-    let mdArr = [];
-    
-    // console.log(maxDegree)
-    for(let key in obj) {
-        if (obj[key] === maxDegree) mdArr.push(key)
-    }
-    // console.log(mdArr)
-        
-    let result =[];
-    let result2;
-    for (let i = 0; i<mdArr.length; i++) {
+//     for(let i = 0; i<nums.length; i++){
+//         let item = nums[i]
+//             if(!map.get(item)) {
+//                 map.set(item, {freq : 1, index : [i]})
+//             }
+//             else {
+//                 map.set(item, {freq : map.get(item).freq+1, index : [...map.get(item).index, i]})
 
-        let temp = [];
-        for(let j=0; j<nums.length; j++) {
-            if (nums[j] === parseInt(mdArr[i])){
-                temp.push(j)
-        
-            }
+//             }
+//             if(map.get(item).freq > max) max = map.get(item).freq
+//     }
+    
+    
+   
+    let result = [];
+  
+    for (let i of map) {
+        if(i[1].freq === max) {
+            let length =  i[1].index[i[1].index.length-1] - i[1].index[0]
+            result.push(length + 1)
         }
-    // console.log(temp)
-        result.push(temp[temp.length-1] - temp[0] +1)
+   
     }
- // console.log(result)
-    return Math.min(...result)
+    
+//     console.log(map)
+//     console.log(result)
+    
+    result = Math.min(...result)
+    
+    return result
+
+
+    
 };
