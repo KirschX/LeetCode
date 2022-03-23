@@ -19,7 +19,8 @@ var findShortestSubArray = function(nums) {
         }
         else {
             map.get(item).index.push(i)
-            map.set(item, {freq : map.get(item).freq+1, index : map.get(item).index})
+            // map.set(item, {freq : map.get(item).freq+1, index : map.get(item).index})
+            map.get(item).freq++; 
             
         }
         if(map.get(item).freq > max) max = map.get(item).freq
