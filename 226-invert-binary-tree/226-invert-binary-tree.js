@@ -20,8 +20,7 @@ var invertTree = function(root) {
             node.left = right
             node.right = left
         
-        // console.log(node.val)
-    
+      
         change(node.left)
         change(node.right)
     }
