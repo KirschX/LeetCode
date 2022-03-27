@@ -12,7 +12,7 @@
  */
 var minDepth = function(root) {
     
-    min = Number.MAX_SAFE_INTEGER
+    min = 10000
     
     if(!root) return 0
     if(!root.left && !root.right) return 1
