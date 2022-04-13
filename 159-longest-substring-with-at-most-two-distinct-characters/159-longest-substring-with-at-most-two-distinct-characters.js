@@ -9,12 +9,7 @@ var lengthOfLongestSubstringTwoDistinct = function(s) {
     let max = 0;
     let map = new Map()
     
-    // eceba
-    // 123
-    
-    // ccaabbb
-    // 1234
-    
+
     
     for(let i=0; i<s.length; i++){
     
