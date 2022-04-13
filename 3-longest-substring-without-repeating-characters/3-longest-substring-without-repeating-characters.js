@@ -19,7 +19,7 @@ var lengthOfLongestSubstring = function(s) {
         }
         else {
             start = Math.max(map.get(s[i]) +1, start)
-            L =  Math.min(i - start + 1)
+            L =  i - start + 1
             
             
         }
