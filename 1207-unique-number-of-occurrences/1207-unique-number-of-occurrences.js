@@ -14,6 +14,5 @@ var uniqueOccurrences = function(arr) {
     let occArr = Array.from(map.values())
     let sOccArr = [...new Set(occArr)]
     
-    if( occArr.length == sOccArr.length ) return true;
-    else return false;
+    return occArr.length == sOccArr.length 
 };
