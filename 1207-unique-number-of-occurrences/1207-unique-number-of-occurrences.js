@@ -3,16 +3,18 @@
  * @return {boolean}
  */
 var uniqueOccurrences = function(arr) {
-    let map = new Map();
+    const map = {}
     
-    arr.map((item,index) => {
-            map.set(item, map.get(item) + 1 || 1)
-    })
+    for(const number of arr) {
+        if(map[number]) {
+            map[number] += 1
+        } else {
+            map[number] = 1
+        }
+    }
     
-    // console.log(map)
+    const frequencies = Object.values(map)
+    const set = new Set(frequencies)
     
-    let occArr = Array.from(map.values())
-    let sOccArr = [...new Set(occArr)]
-    
-    return occArr.length == sOccArr.length 
+    return frequencies.length === set.size
 };
