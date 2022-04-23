@@ -8,16 +8,7 @@ var maximumUnits = function(boxTypes, truckSize) {
     let count =0;
     let result = 0;
     
-    boxTypes.sort((a,b) => {
-          if (a[1] < b[1]) {
-            return 1;
-          }
-          if (a[1] > b[1]) {
-            return -1;
-          }
-    
-          return 0;
-    })
+    boxTypes.sort((a,b) => b[1] - a[1])
     
     // console.log(boxTypes)
     
