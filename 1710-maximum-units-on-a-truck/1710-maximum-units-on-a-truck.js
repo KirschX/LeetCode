@@ -3,22 +3,12 @@
  * @param {number} truckSize
  * @return {number}
  */
-var maximumUnits = function(boxTypes, truckSize) {
-    
-    let count =0;
-    let result = 0;
-    
-    boxTypes.sort((a,b) => b[1] - a[1])
-    
-    // console.log(boxTypes)
-    
-    boxTypes.map((item,index) => {
-        for (let i=0; i<item[0]; i++){
-            if(count == truckSize) return;
-            count = count+1;
-            result = result + item[1]
-        }
-    })
-    
-    return result
-  }
+var maximumUnits = function(B, T) {
+    B.sort((a,b) => b[1] - a[1])
+    let ans = 0
+    for (let i = 0; T && i < B.length; i++) {
+        let count = Math.min(B[i][0], T)
+        ans += count * B[i][1], T -= count
+    }
+    return ans
+};
