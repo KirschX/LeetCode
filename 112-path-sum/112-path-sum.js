@@ -17,13 +17,10 @@ var hasPathSum = function(root, targetSum) {
     
     function trav(node, sum) {
         if (!node) return;
-        
-
-
+ 
         sum = sum + node.val;
         if(!node.left && !node.right && sum === targetSum) result = true;
-//         console.log(sum)
-       
+
         trav(node.left, sum)
         trav(node.right, sum)
     }
@@ -33,8 +30,3 @@ var hasPathSum = function(root, targetSum) {
     return  result || false
 };
 
-//          7
-//        0   n
-//     -1  -6
-//    n 1 n  n
-//     n -7
