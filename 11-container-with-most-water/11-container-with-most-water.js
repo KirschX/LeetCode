@@ -1,17 +1,30 @@
-const maxArea = (height) => {
-	let result = 0,
-		left = 0,
-		right = height.length - 1;
-
-	while (left < right) {
-		let smallestSide = Math.min(height[left], height[right]);
-		let area = (right - left) * smallestSide;
-
-		if (area > result) result = area;
-
-		if (height[left] < height[right]) left++;
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var maxArea = function(arr) {
+    
+    let left = 0;
+    let right = arr.length-1;
+    let max = 0;
+    
+    function getArea (l,r) {
+        return (r-l)*(Math.min(arr[l], arr[r]))
+    }
+    
+    while(left < right){
+        
+        max = Math.max(max, getArea(left, right))
+        
+        if (arr[left] < arr[right]) left++;
 		else right--;
-	}
+    }
 
-	return result;
+    return max
+
 };
+
+//세로와 가로의 곱이 최대가 되어야 한다
+//1x6 / 2x2 / 3*
+//세로와 가로를 어디서부터?
+//투포인터?
