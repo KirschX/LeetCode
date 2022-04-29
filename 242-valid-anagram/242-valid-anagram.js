@@ -25,7 +25,7 @@ var isAnagram = function(s, t) {
     }
     
     
-    console.log(map, map2)
+    // console.log(map, map2)
     
     if(map.size !== map2.size) return false
     
