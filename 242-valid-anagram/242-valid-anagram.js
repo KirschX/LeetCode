@@ -8,6 +8,8 @@ var isAnagram = function(s, t) {
     let map = new Map()
     let map2 = new Map()
     
+    if(s.length !== t.length) return false
+    
     for(let i = 0; i<s.length; i++) {
         if(!map.has(s[i])) {
             map.set(s[i], 1)
@@ -27,7 +29,7 @@ var isAnagram = function(s, t) {
     
     // console.log(map, map2)
     
-    if(map.size !== map2.size) return false
+    // if(map.size !== map2.size) return false
     
     for(i of map.keys()){
         if(map.get(i) !== map2.get(i)) return false
