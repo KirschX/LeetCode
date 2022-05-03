@@ -1,24 +1,8 @@
-/**
- * @param {string} s
- * @return {string}
- */
 const removeDuplicates = s => {
-    
-    let sArr = s.split("")
-
-    for(let i=1; i<sArr.length; i++){
-        // console.log(i, sArr)
-        let cur = sArr[i]
-        let prev = sArr[i-1]
-        
-        if(prev === cur){
-            sArr.splice(i-1, 2)
-            i = i-2;
-        }
-        
-        
-    }
-    
-    return sArr.join("")
-    
+  const arr = s.split('');
+  let ans = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    ans === 0 || arr[i] !== arr[ans - 1] ? (arr[ans++] = arr[i]) : --ans;
+  }
+  return arr.slice(0, ans).join('');
 };
