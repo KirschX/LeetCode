@@ -9,7 +9,7 @@ var threeSum = function(nums) {
     
     let result = [];
     
-    console.log(nums)
+    // console.log(nums)
     
     for(let i= 0; i<nums.length-2; i++){
         if (nums[i] === nums[i - 1]) continue;
@@ -49,7 +49,7 @@ var threeSum = function(nums) {
         }
        
     }
-    console.log(result)
+    // console.log(result)
     
     
     return result;
