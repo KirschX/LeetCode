@@ -2,16 +2,20 @@
  * @param {string[]} words
  * @return {string[]}
  */
-var commonChars = function(A) {
-    const result = []
-    const firstWordArr = [...A[0]]
+var commonChars = function(words) {
     
-    for(const letter of firstWordArr) {
-        if(A.every(word => word.includes(letter))) {
-            result.push(letter)
-            A = A.map(word => word.replace(letter, ''))
+    let result = [];
+    let first = [...words[0]]
+    console.log(first)
+    
+    
+    for(const char of first){
+        if(words.every(c => c.includes(char))){
+            result.push(char);
+            words = words.map(item => item.replace(char, ""))
         }
-    }    
-    
+    }
+
     return result
+    
 };
