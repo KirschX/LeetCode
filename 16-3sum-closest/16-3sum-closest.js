@@ -3,7 +3,7 @@
  * @param {number} target
  * @return {number}
  */
-var threeSumClosest = function(nums, target) {
+let threeSumClosest = function(nums, target) {
     
     nums.sort((a,b) => a-b);
     
@@ -46,6 +46,6 @@ var threeSumClosest = function(nums, target) {
 };
 
 
-// 매번 target과 sum과의 거리를 구해서 closest를 갱신
+// 매번 target과 sum과의 거리를 구해서 closest(최소거리)를 갱신
 // closest가 이전 closest보다 작으면 result를 갱신
 // closest 초기값은 최대거리로 (마지막순서 세개 sum과 target과의 거리?)
