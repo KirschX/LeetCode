@@ -1,39 +1,51 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
 var threeSumClosest = function(nums, target) {
-  nums.sort((x, y) => x - y);
-  let closest = Infinity;
+    
+    nums.sort((a,b) => a-b);
+    
+    console.log(nums)
+    let closest = Math.abs(target - (nums[nums.length-1] + nums[nums.length-1] + nums[nums.length-2]));
+    let result = nums[nums.length-1] + nums[nums.length-2] + nums[nums.length-3];
+    
   
-  //Iterate through until 2 from end because there will be two pointers after
-  //this idx to find threesums.
-  for (let i = 0; i < nums.length - 2; i++) {
+    for(let i =0; i<nums.length-2; i++){
+        
+        let lo = i + 1;
+        let hi = nums.length - 1;
+        
+        while(lo < hi){
+            let sum = nums[i] + nums[lo] + nums[hi];
+            
+            if(closest > Math.min(Math.abs(target - sum), closest)) result = sum;
+            closest = Math.min(Math.abs(target - sum), closest)
   
-	//Stops us from doing repeat work.  If i is same as last, we have
-	//Already checked all perms.
-    if (i > 0 && nums[i] === nums[i - 1]) continue;
-    let left = i + 1, right = nums.length - 1;
-    while (left < right) {
-      const total = nums[i] + nums[left] + nums[right];
-	  
-	  //If found, return target.
-      if (total === target) return target;
-	  
-	  //Otherwise set closest to min of distance between current total and target, or 
-	  //previous closest.
-      closest = Math.abs(target - closest) < Math.abs(target - total) ? closest : total;
-	  
-	  //If current total is less than target, we know we need a higher number and arr
-	  //is sorted.  Incrementing left pointer and looping until we find a unique val
-	  //gives us the next highest number.  Side Note:  For this problem and the LC tests,
-	  //we do not need the loop in this block.  For larger data sets, it could save us from
-	  //a lot of repeat work though.  I left it in because I think it's a nice addition.  Feel free
-	  //to remove if you want though.  Won't change performance on LC test cases much.
-      if (total < target) {
-        left++;
-        while(left < right && nums[i] === nums[i - 1]) left++;
-      } else {
-        right--;
-        while (left < right && nums[right] === nums[right + 1]) right--;
-      }
+            
+             // console.log(i, lo, hi, "  "  , sum, closest, result)
+            
+            if(sum === target) {
+                result = sum;
+                break;
+            }
+            
+            if(sum > target) {
+                hi--;
+            }
+            
+            if(sum < target) {
+                lo ++;
+            }
+            
+            // console.log(i, lo, hi, sum, closest)
+        }
     }
-  }
-  return closest;
+    return result;
 };
+
+
+// 매번 target과 sum과의 거리를 구해서 closest를 갱신
+// closest가 이전 closest보다 작으면 result를 갱신
+// closest 초기값은 최대거리로 (마지막순서 세개 sum과 target과의 거리?)
