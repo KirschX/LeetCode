@@ -24,7 +24,7 @@ var sortList = function(head) {
     let newHead = new ListNode();
     let NH = newHead;
     
-    temp.map((item,i) => {
+    temp.map(item => {
         newHead.next = new ListNode(item)
         newHead = newHead.next;
     })
