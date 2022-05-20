@@ -11,7 +11,7 @@
  * @return {TreeNode}
  */
 var sortedArrayToBST = function(nums) {
-    if(!nums.length) return null;
+
     
 
     function build(lo, hi) {
