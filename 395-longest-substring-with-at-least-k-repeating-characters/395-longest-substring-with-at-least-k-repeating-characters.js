@@ -24,13 +24,10 @@ const longestSubstring = function(s, k) {
                 }
                 return Math.max(DAQ(left, pivot), DAQ(nextPivot, right))
             }
-            
         }
         return right - left
     }
-
     return DAQ(0, s.length)
-
 };
     
     
