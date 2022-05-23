@@ -9,7 +9,8 @@ const longestSubstring = function(s, k) {
     
     function DAQ(left, right) {
         // console.log(left, right)
-        if(right -left < k) return 0;
+        if(right < k) return 0;
+        if(left > right) return 0;
         const map = new Map();
         for(let i = left; i < right; i++){
             map.set(s[i], map.get(s[i]) +1 || 1)      
