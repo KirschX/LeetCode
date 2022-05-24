@@ -18,7 +18,6 @@ var longestPalindrome = function(s) {
     })
 
     
-  
     let odd = false;
 
     for(let v of map.values()){
@@ -28,11 +27,8 @@ var longestPalindrome = function(s) {
             odd = true;
             result = result + v-1;
         }
-        // console.log(result)
     }
-    
- 
-    // console.log(maxOdd)
+
     
     return odd ? result +1 : result;
     
