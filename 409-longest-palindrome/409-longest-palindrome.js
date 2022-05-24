@@ -7,6 +7,7 @@ var longestPalindrome = function(s) {
     
     
     // 홀수가 있다면, 홀수 중에서 가장 큰수 넣기
+    // 나머지 홀수들은 -1해서 넣기
     // 짝수 양옆에 한개씩 넣기
     
     let map = new Map();
@@ -16,32 +17,24 @@ var longestPalindrome = function(s) {
         map.set(item, map.get(item) +1 || 1)
     })
 
-    // console.log(map.values())
     
-    let odd = [];
-    let even = [];
+  
+    let odd = false;
+
+    for(let v of map.values()){
+        if(v%2 == 0){
+            result = result + v;
+        } else {
+            odd = true;
+            result = result + v-1;
+        }
+        // console.log(result)
+    }
     
-    Array.from(map.values()).map(item => {
-        if(item%2 === 0) even.push(item)
-        else odd.push(item)
-    })
+ 
+    // console.log(maxOdd)
     
-    odd.sort((a,b) => a-b)
-    
-    console.log(odd, even)
-    
-    if(odd.length) result = odd.pop()
-    
-    
-    odd.map(item => {
-        if(item -1 >0) result = result + item -1
-    })
-    
-    even.map(item => {
-        result = result + item
-    })
-    
-    return result
+    return odd ? result +1 : result;
     
 };
 
