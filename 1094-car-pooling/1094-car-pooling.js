@@ -10,16 +10,11 @@ var carPooling = function(trips, capacity) {
     
     for(let i =0; i<trips.length; i++){
         map.set(trips[i][1], (map.get(trips[i][1]) || 0) + trips[i][0] );
-        
-        map.set(trips[i][2], (map.get(trips[i][2]) || 0) - trips[i][0] )
-        
+        map.set(trips[i][2], (map.get(trips[i][2]) || 0) - trips[i][0] )     
 //         console.log(map)
     }
-    
     // console.log(map)
-    
     let arr = Array.from(map).sort((a,b) => a[0] - b[0])
-    
     // console.log(arr)
     
     let cur = 0;
@@ -28,8 +23,7 @@ var carPooling = function(trips, capacity) {
         // console.log(cur)
         if(cur > capacity) return false;
     }
-    
-    return true
+    return true;
 };
 
 // 끝까지 가는동안
