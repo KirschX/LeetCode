@@ -13,19 +13,28 @@
  * @return {Node}
  */
 var connect = function(root) {
-    if (root == null) return root;
-    let queue = [root];
-    while(queue.length!=0) {
-        let next = [];
-        while(queue.length!=0) {
-            let node = queue.shift();
-            node.next = queue[0]||null;
-            if (node.left!=null) {
-                next.push(node.left);
-                next.push(node.right);
+    let que = [[0,root]];
+    
+    while(que.length !== 0){
+        let [depth, node] = que.shift();
+        
+        if(node){
+                    if(node.left) que.push([depth+1,node.left]);
+        if(node.right) que.push([depth+1,node.right]);
+        }
+
+        
+        if(que[0]){
+            if(depth === que[0][0]){
+                node.next = que[0][1]
             }
         }
-        queue = next;
+
+               
+        if(node) console.log(depth, node)
     }
+    
+    
+   // console.log(root)
     return root;
 }
