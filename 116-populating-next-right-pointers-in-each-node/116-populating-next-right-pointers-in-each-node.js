@@ -12,31 +12,25 @@
  * @param {Node} root
  * @return {Node}
  */
-var connect = function(root) {
-    let que = [[0,root]];
+const connect = (root) => {
+    if (!root) return root;
     
-    while(que.length !== 0){
-        let [depth, node] = que.shift();
+    const queue = [[0, root]];
+    
+    while (queue.length) {
+        const [curNodelev, currNode] = queue.shift();
         
-
-
-        
-        if(que[0]){
-            if(depth === que[0][0]){
-                node.next = que[0][1]
-            }
+        if (queue.length) {
+            const [nextNodelev, nextNode] = queue.shift();
+            currNode.next = curNodelev === nextNodelev ? nextNode : null;
+            queue.unshift([nextNodelev, nextNode]);
+        } else {
+            currNode.next = null;
         }
         
-        
-        if(node){
-            if(node.left) que.push([depth+1,node.left]);
-            if(node.right) que.push([depth+1,node.right]);
-        }
-               
-        if(node) console.log(depth, node)
+        currNode.left && queue.push([curNodelev + 1, currNode.left]);
+        currNode.right && queue.push([curNodelev + 1, currNode.right]);
     }
     
-    
-   // console.log(root)
     return root;
-}
+};
