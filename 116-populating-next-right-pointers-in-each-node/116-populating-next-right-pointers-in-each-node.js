@@ -13,24 +13,22 @@
  * @return {Node}
  */
 var connect = function(root) {
+    if (!root) return root;
     let que = [[0,root]];
     
     while(que.length !== 0){
         let [depth, node] = que.shift();
         
 
-
+     
+            if(node.left) que.push([depth+1,node.left]);
+            if(node.right) que.push([depth+1,node.right]);
+        
         
         if(que.length){
             if(depth === que[0][0]){
                 node.next = que[0][1]
             }
-        }
-        
-        
-        if(node){
-            if(node.left) que.push([depth+1,node.left]);
-            if(node.right) que.push([depth+1,node.right]);
         }
                
 
