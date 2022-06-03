@@ -16,25 +16,24 @@ var lowestCommonAncestor = function(root, p, q) {
     
     let result;
     
-
-    function BSF (node, count) {
+    function BSF(node, count) {
         if(!node) return 0;
-     
+    
+        
+        
         let left = BSF(node.left, count)
         let right = BSF(node.right, count)
         
-        if(node === p || node === q){count++;}
-
-        // console.log(node.val, count, left, right)
-        if((count + left + right) === 2) return result = node;
+        if(node === p || node === q) count++;
         
-        count = count || left || right
-        return count;
+        // console.log(node.val, count, left, right)
+        if(count + left + right === 2) return result = node;
+        
+        
+        return Math.max(count, left, right)
     }
     
     BSF(root, 0)
-    
- 
     
     return result
 };
