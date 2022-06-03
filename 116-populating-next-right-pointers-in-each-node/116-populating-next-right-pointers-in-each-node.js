@@ -18,10 +18,7 @@ var connect = function(root) {
     while(que.length !== 0){
         let [depth, node] = que.shift();
         
-        if(node){
-            if(node.left) que.push([depth+1,node.left]);
-            if(node.right) que.push([depth+1,node.right]);
-        }
+
 
         
         if(que[0]){
@@ -29,7 +26,12 @@ var connect = function(root) {
                 node.next = que[0][1]
             }
         }
-
+        
+        
+        if(node){
+            if(node.left) que.push([depth+1,node.left]);
+            if(node.right) que.push([depth+1,node.right]);
+        }
                
         if(node) console.log(depth, node)
     }
