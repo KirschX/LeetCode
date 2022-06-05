@@ -13,28 +13,29 @@
  * @return {Node}
  */
 var connect = function(root) {
-    if (!root) return root;
-    let que = [[0,root]];
     
-    while(que.length !== 0){
-        let [depth, node] = que.shift();
+    function DSF(node) {
+        if(!node) return;
         
-
-     
-            if(node.left) que.push([depth+1,node.left]);
-            if(node.right) que.push([depth+1,node.right]);
-        
-        
-        if(que.length){
-            if(depth === que[0][0]){
-                node.next = que[0][1]
-            }
+        if(node.left && node.right){
+            node.left.next = node.right;
+            node.right.next = node.next ? node.next.left  : null
         }
-               
 
+        DSF(node.left)
+        DSF(node.right)
+        
+        // console.log(node.val)
+        
+        
     }
     
+    DSF(root)
     
-   // console.log(root)
-    return root;
+    return root
 }
+
+  //             1
+  //       2           3
+  //   4     5      6    7
+  // 8   9 10 11  12 13 14 15
