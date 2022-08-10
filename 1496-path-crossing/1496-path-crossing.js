@@ -7,10 +7,9 @@ var isPathCrossing = function(path) {
         let map = new Map();
         let result = false;
     
-    // function toString (arr) {
-    //     return `${arr[0]}${arr[1]}`
-    // }
-        map.set(JSON.stringify(pos), (map.get(JSON.stringify(pos)) || 0) + 1)
+    const toStr = ([x,y]) => x + ':' + y;
+    console.log(toStr([2,3]))
+        map.set(toStr(pos), (map.get(toStr(pos)) || 0) + 1)
       
     for(let i =0; i<path.length; i++){
         
@@ -23,9 +22,9 @@ var isPathCrossing = function(path) {
         } else if(path[i] === "E"){
             pos[0] ++;
         }
-        map.set(JSON.stringify(pos), (map.get(JSON.stringify(pos)) || 0) + 1)
+        map.set(toStr(pos), (map.get(toStr(pos)) || 0) + 1)
         // console.log(map)
-        if(map.get(JSON.stringify(pos)) >= 2) {
+        if(map.get(toStr(pos)) >= 2) {
             result = true;
         }
     }
