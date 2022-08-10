@@ -8,7 +8,7 @@ var isPathCrossing = function(path) {
         let result = false;
     
     const toStr = ([x,y]) => x + ':' + y;
-    console.log(toStr([2,3]))
+    // console.log(toStr([2,3]))
         map.set(toStr(pos), (map.get(toStr(pos)) || 0) + 1)
       
     for(let i =0; i<path.length; i++){
