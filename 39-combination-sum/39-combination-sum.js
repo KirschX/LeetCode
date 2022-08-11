@@ -4,29 +4,30 @@
  * @return {number[][]}
  */
 var combinationSum = function(candidates, target) {
-    let index = 0;
     let temp = [];
     let result = [];
+
     
-    function traverse(index, target, temp) {
-        if(target === 0){
-                result.push([...temp])
+    function traverse(index, sum, temp) {
+        if(sum === target){
+            result.push([...temp])
+            // result.push(temp.slice())
+            //console.log(temp, result)
             return;
         }
         
-        if(target < 0) return;
+        if(sum > target) return;
         
         for(let i = index; i<candidates.length; i++){
             temp.push(candidates[i])
-            traverse(i, target-candidates[i], temp)
+            traverse(index, sum + candidates[i], temp)
             temp.pop()
-            
+            index ++;
         }
-        
     }
-    traverse(index, target, temp)
     
-  
-  return result     
+    traverse(0, 0, temp)
+    
+    return result;
 };
 
