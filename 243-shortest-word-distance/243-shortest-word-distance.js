@@ -8,7 +8,8 @@ var shortestDistance = function(wordsDict, word1, word2) {
     
     let a ;
     let b ;
-    let min = 9999;
+    let min = Number.MAX_SAFE_INTEGER;
+   
     
     for(let i =0; i<wordsDict.length; i++){
         if(wordsDict[i] === word1) {
