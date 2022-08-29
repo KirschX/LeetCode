@@ -17,7 +17,7 @@ var containsNearbyDuplicate = function(nums, k) {
 //     console.log(map)
     
     for(let i=1; i<nums.length - k ; i++){
-        let temp = nums.slice(pos1 +i, pos2 +i+1)
+        // let temp = nums.slice(pos1 +i, pos2 +i+1)
       
         map.set(nums[pos2+i], (map.get(nums[pos2+i]) || 0) +1)
         map.set(nums[pos1+i-1], map.get(nums[pos1+i-1]) -1)
