@@ -29,7 +29,6 @@ var canFinish = function(numC, preQ) {
         
         if(edges){
             for(let e of edges){
-                
                 if(visited.has(e)){ //skip if it is explored already
                     continue;
                 }
