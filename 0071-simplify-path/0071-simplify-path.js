@@ -19,7 +19,7 @@ var simplifyPath = function(path) {
         
         params.push(item)
     }
-    console.log(params)
+    // console.log(params)
 
     // params.pop()
     return '/'+params.join("/") || "/"
