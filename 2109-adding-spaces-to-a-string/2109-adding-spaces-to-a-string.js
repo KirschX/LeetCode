@@ -26,21 +26,20 @@ var addSpaces = function(s, spaces) {
     
 //     return result
     
-    
-    let map = new Map()
+    let result = ""
     
     let sArr = s.split("")
     
     let count = 0;
     sArr.map((item, index) => {
         if(index === spaces[count]){
-            map.set(index, " " + item)
+            result = result + " " + item
             count++;
-        } else map.set(index, item)
+        } else result = result + item
         
     })
     
-    return Array.from(map.values()).join("")
+    return result
     
     
 };
