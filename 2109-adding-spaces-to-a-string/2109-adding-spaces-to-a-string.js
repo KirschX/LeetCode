@@ -28,16 +28,13 @@ var addSpaces = function(s, spaces) {
     
     let result = ""
     
-    let sArr = s.split("")
-    
     let count = 0;
-    sArr.map((item, index) => {
-        if(index === spaces[count]){
-            result = result + " " + item
+    for (let i =0; i<s.length; i++){
+                if(i === spaces[count]){
+            result = result + " " + s[i]
             count++;
-        } else result = result + item
-        
-    })
+        } else result = result + s[i]
+    }
     
     return result
     
