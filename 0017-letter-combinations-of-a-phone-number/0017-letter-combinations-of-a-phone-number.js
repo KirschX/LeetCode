@@ -1,36 +1,49 @@
 var letterCombinations = function(digits) {
-       if (digits.length === 0) {
+    const digitMap = {
+        '2': ['a', 'b', 'c'],
+        '3': ['d', 'e', 'f'],
+        '4': ['g', 'h', 'i'],
+        '5': ['j', 'k', 'l'],
+        '6': ['m', 'n', 'o'],
+        '7': ['p', 'q', 'r', 's'],
+        '8': ['t', 'u', 'v'],
+        '9': ['w', 'x', 'y', 'z']
+    };
+    
+    if(digits === '') {
         return [];
     }
     
-    let digitObject = {
-        2: ['a', 'b', 'c'],
-        3: ['d', 'e', 'f'],
-        4: ['g', 'h', 'i'],
-        5: ['j', 'k', 'l'],
-        6: ['m', 'n', 'o'],
-        7: ['p', 'q', 'r', 's'],
-        8: ['t', 'u', 'v'],
-        9: ['w', 'x', 'y', 'z']
-    };
+    const digitsArray = digits.split('');
+    const candidates = [];
+    
+    for(let i = 0; i < digitsArray.length; i++) {
+        candidates.push(digitMap[digitsArray[i]]);
+    }
+    
+    const combos = generateCombinations(candidates);
+    const result = combos.map(combo => combo.join(''));
+    
+    return result;
+};
 
-    const map = new Map(Object.entries(digitObject));
-    const combinations = [];
-
-    function traverse(n, string) {
-        if (n === digits.length) {
-            combinations.push(string);
+function generateCombinations(candidates) {
+    const result = [];
+    
+    function backtrack(combination, index) {
+        if(index === candidates.length) {
+            result.push([...combination]);
             return;
         }
-
-        const digit = digits[n];
-        const letters = map.get(digit);
-        for (const letter of letters) {
-            traverse(n + 1, string + letter);
+        
+        for(let i = 0; i < candidates[index].length; i++) {
+            combination.push(candidates[index][i]);
+            backtrack(combination, index + 1);
+            combination.pop();
         }
     }
-
-    traverse(0, "");
-    const uniqueCombinations = [...new Set(combinations)];
-    return uniqueCombinations.sort();
-};
+    
+    backtrack([], 0);
+    
+    return result;
+}
