@@ -9,8 +9,6 @@ var permute = function(nums) {
     const dfs = (n, pos, arr) => {
         if(n > nums.length-1) return;
         
-        // console.log(pos)
-        
         for(let i = 0; i<nums.length; i++){
             if(pos.includes(i)) continue;
             dfs(i, [...pos, i], [...arr, nums[i]])
