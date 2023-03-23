@@ -22,8 +22,8 @@ var levelOrder = function(root) {
         let L = que.length;
         for(let i=0; i<L; i++){
             const node = que.shift()
-            if(node && node.left) que.push(node.left)
-            if(node && node.right) que.push(node.right)
+            if(node.left) que.push(node.left)
+            if(node.right) que.push(node.right)
             temp.push(node.val)
         }
         result.push(temp)
@@ -31,15 +31,4 @@ var levelOrder = function(root) {
         
     }
     return result
-    
-    
-//        for(let i=0; i<que.length; i++){
-           
-//        }
-        
- 
-   
-
-    
-    // dfs()
 };
