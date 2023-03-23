@@ -30,7 +30,7 @@ var levelOrder = function(root) {
 
         
     }
-    return result || []
+    return result
     
     
 //        for(let i=0; i<que.length; i++){
