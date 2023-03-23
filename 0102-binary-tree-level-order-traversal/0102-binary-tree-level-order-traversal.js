@@ -16,8 +16,6 @@ var levelOrder = function(root) {
     let result = []
     
     while(que.length) {
-        if(que.length === 0) return;
-        
         let temp = []
         let L = que.length;
         for(let i=0; i<L; i++){
