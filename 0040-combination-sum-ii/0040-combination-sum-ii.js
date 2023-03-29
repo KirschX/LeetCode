@@ -21,9 +21,9 @@ var combinationSum2 = function(candidates, target) {
             
              if (i != n && candidates[i] == candidates[i-1]) continue;
             if(tempSum>target) return;
-            arr.push(candidates[i])
-            traverse(i+1, arr, tempSum + candidates[i])
-            arr.pop()
+            // arr.push(candidates[i])
+            traverse(i+1, [...arr, candidates[i]], tempSum + candidates[i])
+            // arr.pop()
         }
     }
 
