@@ -11,10 +11,8 @@ var combinationSum2 = function(candidates, target) {
     let result = [];
     
     const traverse = (n, arr, tempSum) => {
-        if(tempSum === target) {
-            set.add(JSON.stringify(arr))
-            return;
-        }
+        if(tempSum === target) set.add(JSON.stringify(arr))
+
         
         if(n > candidates.length) return;
         if(candidates[n] > target) return;
