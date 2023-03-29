@@ -12,7 +12,7 @@ var combinationSum2 = function(candidates, target) {
     
     const traverse = (n, arr, tempSum) => {
         if(tempSum === target) {
-            set.add(JSON.stringify(arr))
+            set.add(arr)
         }
         if(n > candidates.length) return;
         if(candidates[n] > target) return;
@@ -29,7 +29,7 @@ var combinationSum2 = function(candidates, target) {
 
     traverse(0, [], 0)
     
-    return Array.from(set).map(item => JSON.parse(item))
+    return Array.from(set)
 };
 
 
