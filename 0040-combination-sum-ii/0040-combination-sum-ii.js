@@ -11,13 +11,14 @@ var combinationSum2 = function(candidates, target) {
     let result = [];
     
     const traverse = (n, arr, tempSum) => {
-        if(tempSum === target) set.add(JSON.stringify(arr))
-
-        
+        if(tempSum === target) {
+            set.add(JSON.stringify(arr))
+        }
         if(n > candidates.length) return;
         if(candidates[n] > target) return;
 
         for(let i =n; i<candidates.length; i++){
+            
              if (i != n && candidates[i] == candidates[i-1]) continue;
             if(tempSum>target) return;
             arr.push(candidates[i])
