@@ -1,26 +1,26 @@
 var restoreIpAddresses = function(s) {
-    const result = []
+    let result = new Set()
     
-    function permute(arr, str) {
-        if(arr.length === 3) {
-            if(isValid(str)) result.push([...arr, str]);
-            return;
-        }
+    const trav = (arr, string, count) => {
+        if(count>4) return;
+        if(count === 4 && string.length === 0) result.add(JSON.stringify(arr))
+        if(!string.length) return;
         
-        for(let i = 1; i < 4; i++) {
-            let subStr = str.slice(0, i);
+        // console.log(arr, string)
         
-            if(!isValid(subStr)) continue;
-            permute([...arr, subStr], str.slice(i));
+        for(let i=0; i<3; i++){
+            let temp = string.slice(0, i+1)
+            if(temp > 255) continue;
+            if(temp.length >1 && temp.startsWith("0")) continue;
+            trav([...arr, temp] , string.slice(i+1), count+1)
         }
     }
     
-    function isValid(str) {
-        if(+str > 255 || !str.length) return false;
-        if(str.length >= 2 && str[0] === '0') return false;
-        return true;
-    }
+    trav([], s, 0)
     
-    permute([], s);
-    return result.map(x => x.join('.'))
+    return Array.from(result).map((item) => {
+        item = JSON.parse(item)
+        return item.join(".")
+    })
+    
 };
