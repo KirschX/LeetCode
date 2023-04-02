@@ -1,22 +1,14 @@
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number}
- */
-
-function searchInsert(nums, target) {
-    
-    return bSearch(nums, target, 0, nums.length-1)
+var searchInsert = function(nums, target) {
+    let high = nums.length - 1;
+    let low = 0;
+    while (low <= high) {
+        let mid = Math.floor((high + low) / 2);
+        if (nums[mid] == target) return mid;
+        else if (nums[mid] > target) {
+            high = mid - 1;
+        } else {
+            low = mid + 1;
+        }
+    }
+    return low;
 };
-
-function bSearch (arr, target, start, end) {
-        if(start>end) return start
-  
-        let midIndex = Math.floor((start+end) /2)
-        
-        if(arr[midIndex] === target) return midIndex
-        
-        if(arr[midIndex] > target) return bSearch(arr, target, start, midIndex-1)
-        if(arr[midIndex] < target ) return bSearch(arr, target, midIndex+1, end)
-}
-
