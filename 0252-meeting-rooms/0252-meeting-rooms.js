@@ -1,9 +1,16 @@
+/**
+ * @param {number[][]} intervals
+ * @return {boolean}
+ */
 var canAttendMeetings = function(intervals) {
-    if(!intervals || intervals.length === 1) return true;
+    if(intervals.length === 1) return true;
+    let result = true;
     
-    let sorted = intervals.sort((a,b) => a[0] - b[0]);
-    for(let i = 0; i < sorted.length - 1; i++) {
-        if(sorted[i][1] > sorted[i+1][0]) return false;
+    intervals.sort((a,b) => a[0] - b[0])
+    
+    for(let i=1; i<intervals.length; i++){
+        if(intervals[i-1][1] > intervals[i][0]) result = false
     }
-    return true;
+    
+    return result
 };
