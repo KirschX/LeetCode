@@ -21,7 +21,7 @@ var checkAlmostEquivalent = function(word1, word2) {
     for (const [k,v] of map.entries()){
         if(v > 3 || v <-3) result = false
     }
-    console.log(map)
+    // console.log(map)
     
     return result
 };
