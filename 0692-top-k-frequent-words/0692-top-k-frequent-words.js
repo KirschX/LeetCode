@@ -13,7 +13,7 @@ var topKFrequent = function(words, k) {
     
     // console.log(map)
     
-    const collator = new Intl.Collator('en', { numeric: true, sensitivity: 'base' })
+    const collator = new Intl.Collator()
     
     const result = Array.from(map.entries()).sort((a,b) => {
         if(a[1] === b[1]) return collator.compare(a[0],b[0])
