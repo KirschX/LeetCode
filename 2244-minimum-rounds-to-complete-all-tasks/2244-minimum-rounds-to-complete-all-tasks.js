@@ -22,20 +22,12 @@ var minimumRounds = function(tasks) {
             return m+n;
     }
     
-    // console.log(findMinSum(5))
-        
     
     tasks.forEach((item) => {
         if(map.get(item)) map.set(item, map.get(item) + 1)
         else map.set(item, 1)
        
     })
-
-    
-    // console.log(map.values())
-    
-    // 3으로 나누기, 나머지가 1이면 -1, 몫 n
-    // 2로 나누기, 몫 m
     
     const temp = Array.from(map.values());
     let count = 0;
