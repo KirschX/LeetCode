@@ -7,19 +7,20 @@ var minimumRounds = function(tasks) {
     const map = new Map();
     
     const findMinSum = (num) => {
-            const remain = num % 3
+//             const remain = num % 3
             
-            // M 구하기
-            let m;
-            if(remain === 1) m = Math.floor(num/3) -1;
-            else m = Math.floor(num/3);
-            num = num - m * 3;
+//             // M 구하기
+//             let m;
+//             if(remain === 1) m = Math.floor(num/3) -1;
+//             else m = Math.floor(num/3);
+//             num = num - m * 3;
             
-            //n 구하기
-            let n = Math.floor(num/2)
-            // console.log([m,n])
+//             //n 구하기
+//             let n = Math.floor(num/2)
+//             // console.log([m,n])
         
-            return m+n;
+//             return m+n;
+        return Math.ceil(num/3)
     }
     
     
