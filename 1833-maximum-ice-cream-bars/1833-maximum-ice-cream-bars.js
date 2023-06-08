@@ -13,11 +13,9 @@ var maxIceCream = function(costs, coins) {
     
 
     for(let i=0; i<costs.length; i++){
-             // console.log(coins, count)
         const item = costs[i];
         coins = coins - item
         count++;
-        // console.log(coins, count)
         if(coins=== 0) return count;
         if(coins<= 0) return result = count-1;
     }
