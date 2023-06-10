@@ -6,29 +6,29 @@ var minMeetingRooms = function(intervals) {
     class MinPQ {
         constructor() {
             this.compare = (a,b) => a - b
-            this.heap = [];
+            this.que = [];
         }
         
         enque(v) {
-            this.heap.push(v);
-            this.heap.sort(this.compare)
+            this.que.push(v);
+            this.que.sort(this.compare)
        
         }
         
         peek() {
             if(this.size === 0) return null;
-            return this.heap[0]
+            return this.que[0]
         }
         
         deque() {
             if (this.size === 0) return null;
-            this.heap.shift();
+            this.que.shift();
       
             return;
         }
         
         get size() {
-            return this.heap.length;
+            return this.que.length;
         }
     }
     
