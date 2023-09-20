@@ -4,9 +4,13 @@ var isValidSerialization = function(preorder) {
 
     function callDFS() {
         if(i >= arr.length) return false;
+        
+        if(arr[i] === '#') {
+            i = i+1;
+            return true;
+        };
 
-        if(arr[i++] === '#') return true;
-
+        i= i+1;
         return callDFS() && callDFS();
     }
 
