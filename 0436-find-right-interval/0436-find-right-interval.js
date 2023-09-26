@@ -29,7 +29,7 @@ var findRightInterval = function(intervals) {
         let rightInterval = search(intervals, 0, intervals.length-1, target)
 
         
-        if(rightInterval) result[item[2]] = rightInterval[2]
+        if(rightInterval !== undefined) result[item[2]] = rightInterval[2]
         else result[item[2]] = -1
     }
 
