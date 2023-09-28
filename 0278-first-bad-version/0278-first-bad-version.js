@@ -22,7 +22,7 @@ var solution = function(isBadVersion) {
     return function(n) {
 
         let left = 1;
-        let right = n+1;
+        let right = n;
 
         while(left < right) {
             const mid = left + Math.floor((right - left) /2);
