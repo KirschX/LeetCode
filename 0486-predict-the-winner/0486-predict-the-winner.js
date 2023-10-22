@@ -1,20 +1,20 @@
 var predictTheWinner = function(nums) {
-    const n = nums.length;
-    const dp = Array.from({ length: n }, () => Array(n).fill(0));
-
-    // Base case: for a single score
-    for (let i = 0; i < n; i++) {
-        dp[i][i] = nums[i];
-    }
-
-    // Fill the DP table
-    for (let len = 2; len <= n; len++) {
-        for (let i = 0; i <= n - len; i++) {
-            const j = i + len - 1;
-            dp[i][j] = Math.max(nums[i] - dp[i+1][j], nums[j] - dp[i][j-1]);
+    function dfs(l, r) {
+        // Base case: if l == r, return the number at that position
+        if (l == r) {
+            return nums[l];
         }
+
+        // Choice 1: Player picks the leftmost number
+        // The opponent will then try to minimize the remaining value
+        let pickLeft = nums[l] - dfs(l + 1, r);
+        
+        // Choice 2: Player picks the rightmost number
+        let pickRight = nums[r] - dfs(l, r - 1);
+
+        // Return the maximum of the two choices
+        return Math.max(pickLeft, pickRight);
     }
 
-    console.log(dp)
-    return dp[0][n-1] >= 0;
+    return dfs(0, nums.length - 1) >= 0;
 };
