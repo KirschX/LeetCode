@@ -10,9 +10,6 @@
  * @return {ListNode}
  */
 var mergeKLists = function(lists) {
-    // const root = newListNode(0)
-    // let result = ;
-    // while()
     const temp = [];
   
     lists.forEach((nodeRoot) => {
@@ -26,19 +23,11 @@ var mergeKLists = function(lists) {
     let node = new ListNode();
     const head = node;
     
-    
     temp.sort((a,b) => a-b)
     .forEach(num => {
         node.next = new ListNode(num);
         node = node.next;
     })
-
-
-
-//     while(temp.length >0){
-//         node.next = new ListNode(temp.shift());
-//         node = node.next;
-//     }
     
     return head.next
 };
