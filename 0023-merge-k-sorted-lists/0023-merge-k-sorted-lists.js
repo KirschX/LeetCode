@@ -23,15 +23,22 @@ var mergeKLists = function(lists) {
         }
     })
     
-    temp.sort((a,b) => a-b);
-    // console.log(temp)
-    let node = new ListNode(0);
+    let node = new ListNode();
     const head = node;
     
-    while(temp.length >0){
-        node.next = new ListNode(temp.shift());
+    
+    temp.sort((a,b) => a-b)
+    .forEach(num => {
+        node.next = new ListNode(num);
         node = node.next;
-    }
+    })
+
+
+
+//     while(temp.length >0){
+//         node.next = new ListNode(temp.shift());
+//         node = node.next;
+//     }
     
     return head.next
 };
