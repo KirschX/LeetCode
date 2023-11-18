@@ -4,25 +4,19 @@
  * @return {number[][]}
  */
 var combine = function(n, k) {
-    const arr = Array.from({length:n}).map((item, index) => item = index +1 );
-   
-    const getCombinations = (arr, m) => {
-        if(m === 1) return arr.map(v => [v])
-        const result = [];
-       
-        arr.forEach((item, index, origin) => {
-            const rest = origin.slice(index+1);
-            const combinations = getCombinations(rest, m-1);
-    
-            combinations.map(comb => result.push([item, ...comb]))
-       
-        })
-    
-        return result; 
-    }
-             
-        
-    
- 
-    return getCombinations(arr,k)
+    const result = [];
+    generateCombinations(1, n, k, [], result);
+    return result;
 };
+
+function generateCombinations(start, n, k, combination, result) {
+    if (k === 0) {
+        result.push([...combination]);
+        return;
+    }
+    for (let i = start; i <= n; ++i) {
+        combination.push(i);
+        generateCombinations(i + 1, n, k - 1, combination, result);
+        combination.pop();
+    }
+}
