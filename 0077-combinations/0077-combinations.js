@@ -3,27 +3,26 @@
  * @param {number} k
  * @return {number[][]}
  */
-function combine(n, k) {
-    let results = [];
-    let stack = [];
-
-    stack.push({index: 1, combination: []});
-
-    while (stack.length > 0) {
-        let {index, combination} = stack.pop();
-
-        // When the combination is of length k, add it to the results
-        if (combination.length === k) {
-            results.push(combination);
-            continue;
-        }
-
-        // Iterate through the numbers
-        for (let i = index; i <= n; ++i) {
-            // Create a new combination from the current one and push it onto the stack
-            stack.push({index: i + 1, combination: [...combination, i]});
-        }
+var combine = function(n, k) {
+    const arr = Array.from({length:n}).map((item, index) => item = index +1 );
+   
+    const getCombinations = (arr, m) => {
+        if(m === 1) return arr.map(v => [v])
+        const result = [];
+       
+        arr.forEach((item, index, origin) => {
+            const rest = origin.slice(index+1);
+            const combinations = getCombinations(rest, m-1);
+    
+            combinations.map(comb => result.push([item, ...comb]))
+       
+        })
+    
+        return result; 
     }
-
-    return results;
-}
+             
+        
+    
+ 
+    return getCombinations(arr,k)
+};
