@@ -20,9 +20,6 @@ var combine = function(n, k) {
     
         return result; 
     }
-             
-        
-    
- 
+
     return getCombinations(arr,k)
 };
