@@ -23,10 +23,10 @@ var floodFill = function(image, sr, sc, color) {
 
         
         
-         dfs(x+1,y)
-         dfs(x,y-1)
-       dfs(x-1, y)
-        dfs(x, y+1)
+        if(image[x+1]?.[y] !== undefined) dfs(x+1,y)
+        if(image[x][y-1] !== undefined) dfs(x,y-1)
+        if(image[x-1]?.[y] !== undefined) dfs(x-1, y)
+        if(image[x][y+1] !== undefined) dfs(x, y+1)
 
     }
     
